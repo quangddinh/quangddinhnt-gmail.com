@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#3D467C" >
+
+    <TextView
+        android:textColor="#1B0603"
+        android:textColorHighlight="@color/colorPrimaryDark"
+        android:id="@+id/tv_login"
+        android:textSize="30sp"
+        android:background="#C3A253"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register" />
+
+    <EditText
+        android:layout_marginTop="30dp"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="20sp"
+        android:id="@+id/edt_email"
+        android:layout_below="@+id/tv_login"
+        android:hint="Email                  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="20sp"
+        android:id="@+id/edt_pass"
+        android:layout_below="@+id/edt_email"
+        android:hint="Password           "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:text="Sign Up"
+        android:id="@+id/btn_signup"
+        android:layout_below="@+id/edt_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:text="Confirm"
+        android:id="@+id/btn_trangchu"
+        android:layout_below="@+id/btn_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:text="Back"
+        android:id="@+id/btn_back"
+        android:layout_below="@+id/btn_trangchu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>
