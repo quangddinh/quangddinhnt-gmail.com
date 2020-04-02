@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnDangnhap;
     Button mBtnRegister;
     private FirebaseAuth mAuth;
-    int mRequestCode = 111;
 
 
     @Override
@@ -36,11 +35,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBtnRegister = findViewById(R.id.btn_register);
 
 
         map();
         setListener();
+
+
+
+
+    }
+
+    private void setListener() {
 
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,11 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-    }
-
-    private void setListener() {
 
         btnDangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
+                                    Intent intent = new Intent(MainActivity.this,UserActivity.class);
+                                    startActivity(intent);
                                     Toast.makeText(MainActivity.this, "Log in success", Toast.LENGTH_SHORT).show();
                                 } else {
                                     // If sign in fails, display a message to the user.
@@ -81,9 +83,6 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
-
-                    Intent intent = new Intent(MainActivity.this,UserActivity.class);
-                    startActivity(intent);
 
                 }
             }
@@ -95,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
         edtTk = findViewById(R.id.edittextEmail);
         edtMk = findViewById(R.id.edittextPassword);
         btnDangnhap = findViewById(R.id.buttonDangnhap);
-
         mAuth = FirebaseAuth.getInstance();
+        mBtnRegister = findViewById(R.id.btn_register);
     }
 
     @Override
@@ -104,20 +103,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        Toast.makeText(this, currentUser.getEmail(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == mRequestCode && resultCode == RESULT_OK && data != null) {
-
-            String email2 = data.getStringExtra(RegisterActivity.EMAIL);
-            String pass2 = data.getStringExtra(RegisterActivity.PASS);
-
-            Toast.makeText(MainActivity.this, "Insert success", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(MainActivity.this, "No data", Toast.LENGTH_SHORT).show();
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
 }

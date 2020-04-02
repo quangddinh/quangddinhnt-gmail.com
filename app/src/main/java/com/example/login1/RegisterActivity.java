@@ -20,9 +20,6 @@ public class RegisterActivity extends AppCompatActivity {
     Button mBtnSign, mBtnTrangchu, mBtnBack;
     EditText mEdtemail, mEdtpass;
     private FirebaseAuth mAuth;
-    public static final String EMAIL = "EMAIL";
-    public static final String PASS = "PASS";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +37,10 @@ public class RegisterActivity extends AppCompatActivity {
         mBtnSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String email = mEdtemail.getText().toString();
                 String password = mEdtpass.getText().toString();
+
                 if(email.equals("") || password.equals("") )
                 {
                     Toast.makeText(RegisterActivity.this , "Bạn Chưa Nhập Thông Tin", Toast.LENGTH_SHORT).show();
@@ -65,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
+            // xac nhan dki
         mBtnTrangchu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,11 +77,9 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
                 else {
-                    Intent intent = new Intent();
-                    intent.putExtra(EMAIL, email1);
-                    intent.putExtra(PASS, pass1);
-                    setResult(RESULT_OK, intent);
-                    finish();
+
+                    Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                    startActivity(intent);
                     Toast.makeText(RegisterActivity.this , "Đăng kí thành công", Toast.LENGTH_SHORT).show();
 
                 }
