@@ -5,17 +5,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#95B5D1"
+    android:background="@drawable/bg_user"
     tools:context=".UserActivity">
 
 
+    <ImageView
+        android:background="#02A65A"
+        android:layout_marginTop="10dp"
+        android:id="@+id/img_user"
+        android:layout_below="@+id/toolbar"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_profile"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+
     <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/img_user"
+        android:layout_below="@+id/tv_useemail"
+        android:id="@+id/tv_id"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="Id"
+        android:textColor="#78201E"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/img_user"
         android:layout_below="@+id/toolbar"
         android:id="@+id/tv_username"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:textSize="20sp"
         android:text="Name"
-        android:textColor="#1D0849"
+        android:textColor="#78201E"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/img_user"
+        android:layout_below="@+id/tv_username"
+        android:id="@+id/tv_useemail"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="Email"
+        android:textColor="#78201E"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -29,29 +66,23 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:background="@drawable/background_btn"
         android:visibility="visible"
         android:id="@+id/btn_save"
         android:layout_marginTop="20dp"
-        android:text="Save Name"
+        android:textStyle="bold"
+        android:text="Save"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/edt_insert_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_below="@+id/tv_username"
-        android:id="@+id/tv_useemail"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:text="Email"
-        android:textColor="#1D0849"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
 
 
     <Toolbar
         android:id="@+id/toolbar"
-        android:background="#98C667"
+        android:background="#7CBC38"
         style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:elevation="4dp"
         android:title="Home"

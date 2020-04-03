@@ -27,7 +27,7 @@ public class UserActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     Button mBtnSave;
-    TextView mTvName, mTvEmail;
+    TextView mTvName, mTvEmail, mTvId;
     ImageView mImg;
     EditText mEdtName;
     Toolbar toolbar;
@@ -54,24 +54,33 @@ public class UserActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                if (user != null) {
-                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                            .setDisplayName(mEdtName.getText().toString())
-                            .build();
-                    user.updateProfile(profileUpdates)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(UserActivity.this, "Cap nhat thanh cong", Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        Toast.makeText(UserActivity.this, "Loi cap nhat", Toast.LENGTH_SHORT).show();
+                if (mEdtName.getText().toString().equals(""))
+                {
+                        Toast.makeText(UserActivity.this , "Fail", Toast.LENGTH_SHORT).show();
+                        return;
+                }
+                else {
+                    if (user != null) {
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                .setDisplayName(mEdtName.getText().toString())
+                                .build();
+                        user.updateProfile(profileUpdates)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(UserActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(UserActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
-                                }
-                            });
+                                });
 
 
-                } return;
+                    } return;
+                }
+
+
             }
         });
 
@@ -97,23 +106,11 @@ public class UserActivity extends AppCompatActivity {
             // Name, email address, and profile photo Url
             String name = user.getDisplayName();
             String email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
-            //                    boolean emailVerified = user.isEmailVerified();
-            String uid = user.getUid();
+            // boolean emailVerified = user.isEmailVerified();
+            String uid = "ID: " + user.getUid();
             mTvEmail.setText(email);
             mTvName.setText(name);
-
-//            if (mTvName == null ){
-//                mEdtName.setVisibility(View.INVISIBLE);
-//                mBtnSave.setVisibility(View.INVISIBLE);
-//                mTvName.setVisibility(View.VISIBLE);
-//            }
-//            else {
-//                mBtnSave.setVisibility(View.VISIBLE);
-//                mEdtName.setVisibility(View.VISIBLE);
-//                mTvName.setVisibility(View.INVISIBLE);
-//            }
-
+            mTvId.setText(uid);
 
         }
 
@@ -125,6 +122,7 @@ public class UserActivity extends AppCompatActivity {
             mTvEmail = findViewById(R.id.tv_useemail);
             mEdtName = findViewById(R.id.edt_insert_name);
             mBtnSave = findViewById(R.id.btn_save);
+            mTvId = findViewById(R.id.tv_id);
             //        mImg = findViewById(R.id.img_avatar);
 
 

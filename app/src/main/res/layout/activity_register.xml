@@ -4,31 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="#3D467C" >
+    android:background="@drawable/bg_register">
 
-    <TextView
-        android:textColor="#1B0603"
-        android:textColorHighlight="@color/colorPrimaryDark"
-        android:id="@+id/tv_login"
-        android:textSize="30sp"
-        android:background="#C3A253"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register" />
+
+    <ImageView
+        android:id="@+id/img_regis"
+        android:src="@drawable/Registratio"
+        android:scaleType="fitXY"
+        android:layout_width="120dp"
+        android:layout_height="80dp" />
 
     <EditText
         android:layout_marginTop="30dp"
-        android:textColorHint="@color/colorAccent"
+        android:textColorHint="#FFFF"
         android:textSize="20sp"
         android:id="@+id/edt_email"
-        android:layout_below="@+id/tv_login"
+        android:layout_below="@+id/img_regis"
         android:hint="Email                  "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <EditText
         android:layout_marginTop="10dp"
-        android:textColorHint="@color/colorAccent"
+        android:textColorHint="#FFFF"
         android:textSize="20sp"
         android:id="@+id/edt_pass"
         android:layout_below="@+id/edt_email"
@@ -37,7 +35,8 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:layout_marginTop="20dp"
+        android:background="@drawable/background_btn2"
+        android:layout_marginTop="40dp"
         android:text="Sign Up"
         android:id="@+id/btn_signup"
         android:layout_below="@+id/edt_pass"
@@ -45,6 +44,7 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:background="@drawable/background_btn2"
         android:layout_marginTop="20dp"
         android:text="Confirm"
         android:id="@+id/btn_trangchu"
@@ -53,6 +53,7 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:background="@drawable/background_btn2"
         android:layout_marginTop="20dp"
         android:text="Back"
         android:id="@+id/btn_back"
