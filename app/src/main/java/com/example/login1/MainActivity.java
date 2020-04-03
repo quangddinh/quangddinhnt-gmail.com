@@ -36,13 +36,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         map();
         setListener();
-
-
-
-
     }
 
     private void setListener() {
@@ -96,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         btnDangnhap = findViewById(R.id.buttonDangnhap);
         mAuth = FirebaseAuth.getInstance();
         mBtnRegister = findViewById(R.id.btn_register);
+
     }
 
     @Override

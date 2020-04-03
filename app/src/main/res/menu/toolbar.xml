@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/item_change"
-        android:title="Change password" />
+    <item android:id="@+id/item_email"
+        android:title="Verify email" />
+    <item android:title="Verify phone"
+        android:id="@+id/item_phone" />
     <item android:title="Exit"
         android:id="@+id/item_Exit" />
     

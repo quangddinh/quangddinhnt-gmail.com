@@ -18,18 +18,23 @@ import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.squareup.picasso.Picasso;
+
+import java.util.concurrent.TimeUnit;
 
 public class UserActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     Button mBtnSave;
-    TextView mTvName, mTvEmail, mTvId;
+    TextView mTvName, mTvEmail, mTvId, mTvVerify, mTvPhone;
     ImageView mImg;
-    EditText mEdtName;
+    EditText mEdtName, mEdtPhone;
     Toolbar toolbar;
 
 
@@ -94,7 +99,55 @@ public class UserActivity extends AppCompatActivity {
                     Intent intent = new Intent(UserActivity.this,MainActivity.class);
                     startActivity(intent);
                 }
-                return false;
+                if (item.getItemId() == R.id.item_email){
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    user.sendEmailVerification()
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(UserActivity.this, "Success" , Toast.LENGTH_SHORT).show();
+                                        mTvVerify.setText("Email: verified");
+
+                                    }else{
+                                        Toast.makeText(UserActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
+                if (item.getItemId() == R.id.item_phone){
+
+                    if (mEdtPhone.getText().toString().equals(""))
+                    {
+                        Toast.makeText(UserActivity.this , "Fail", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                                +84 + mEdtPhone.getText().toString(),        // Phone number to verify
+                                60,                 // Timeout duration
+                                TimeUnit.SECONDS,   // Unit of timeout
+                                UserActivity.this,               // Activity (for callback binding)
+                                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                                    @Override
+                                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                                        Toast.makeText(UserActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                        mTvPhone.setText(mEdtPhone.getText().toString());
+                                    }
+
+                                    @Override
+                                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                                        Toast.makeText(UserActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                    }
+                }
+
+
+
+                    return false;
+
             }
         });
 
@@ -106,7 +159,7 @@ public class UserActivity extends AppCompatActivity {
             // Name, email address, and profile photo Url
             String name = user.getDisplayName();
             String email = user.getEmail();
-            // boolean emailVerified = user.isEmailVerified();
+            boolean emailVerified = user.isEmailVerified();
             String uid = "ID: " + user.getUid();
             mTvEmail.setText(email);
             mTvName.setText(name);
@@ -123,6 +176,9 @@ public class UserActivity extends AppCompatActivity {
             mEdtName = findViewById(R.id.edt_insert_name);
             mBtnSave = findViewById(R.id.btn_save);
             mTvId = findViewById(R.id.tv_id);
+            mTvVerify = findViewById(R.id.tv_verify);
+            mTvPhone = findViewById(R.id.tv_phone);
+            mEdtPhone = findViewById(R.id.edt_phoneverify);
             //        mImg = findViewById(R.id.img_avatar);
 
 

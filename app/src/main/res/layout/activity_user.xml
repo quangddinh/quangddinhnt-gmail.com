@@ -31,6 +31,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/img_user"
+        android:layout_below="@+id/tv_id"
+        android:id="@+id/tv_verify"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="Verify status"
+        android:textColor="#78201E"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/img_user"
+        android:layout_below="@+id/tv_verify"
+        android:id="@+id/tv_phone"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="Phone number"
+        android:textColor="#78201E"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
     <TextView
         android:layout_marginLeft="10dp"
@@ -57,7 +81,9 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:layout_centerInParent="true"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/btn_save"
         android:visibility="visible"
         android:id="@+id/edt_insert_name"
         android:hint="Name"
@@ -69,15 +95,23 @@
         android:background="@drawable/background_btn"
         android:visibility="visible"
         android:id="@+id/btn_save"
-        android:layout_marginTop="20dp"
+        android:layout_above="@+id/edt_phoneverify"
         android:textStyle="bold"
         android:text="Save"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/edt_insert_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-
+    <EditText
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentBottom="true"
+        android:hint="Verify phone number "
+        android:textColorHint="#ECE2E1"
+        android:id="@+id/edt_phoneverify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
     <Toolbar
@@ -89,8 +123,5 @@
         android:titleTextColor="#10423C"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-
-
 
 </RelativeLayout>
