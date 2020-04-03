@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if(email.equals("") || password.equals("") )
                 {
-                    Toast.makeText(RegisterActivity.this , "Bạn Chưa Nhập Thông Tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this , "Empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 else
@@ -73,14 +73,14 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if(email1.equals("") || pass1.equals("") )
                 {
-                    Toast.makeText(RegisterActivity.this , "Bạn Chưa Nhập Thông Tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this , "Empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 else {
 
                     Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
                     startActivity(intent);
-                    Toast.makeText(RegisterActivity.this , "Đăng kí thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this , "Success", Toast.LENGTH_SHORT).show();
 
                 }
 

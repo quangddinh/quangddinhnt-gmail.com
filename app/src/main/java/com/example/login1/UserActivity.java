@@ -4,37 +4,27 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.squareup.picasso.Picasso;
-
-import java.util.concurrent.TimeUnit;
 
 public class UserActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     Button mBtnSave;
-    TextView mTvName, mTvEmail, mTvId, mTvVerify, mTvPhone;
-    ImageView mImg;
-    EditText mEdtName, mEdtPhone;
+    TextView mTvName, mTvEmail, mTvId, mTvVerify;
+    EditText mEdtName;
     Toolbar toolbar;
 
 
@@ -43,8 +33,6 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         mAuth = FirebaseAuth.getInstance();
-
-
 
         init();
         toolbarclick();
@@ -74,13 +62,12 @@ public class UserActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            Toast.makeText(UserActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(UserActivity.this, "Welcom", Toast.LENGTH_SHORT).show();
                                         } else {
                                             Toast.makeText(UserActivity.this, "Fail", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
-
 
                     } return;
                 }
@@ -106,7 +93,7 @@ public class UserActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(UserActivity.this, "Success" , Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(UserActivity.this, "Please check your mail box" , Toast.LENGTH_SHORT).show();
                                         mTvVerify.setText("Email: verified");
 
                                     }else{
@@ -115,36 +102,6 @@ public class UserActivity extends AppCompatActivity {
                                 }
                             });
                 }
-                if (item.getItemId() == R.id.item_phone){
-
-                    if (mEdtPhone.getText().toString().equals(""))
-                    {
-                        Toast.makeText(UserActivity.this , "Fail", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                                +84 + mEdtPhone.getText().toString(),        // Phone number to verify
-                                60,                 // Timeout duration
-                                TimeUnit.SECONDS,   // Unit of timeout
-                                UserActivity.this,               // Activity (for callback binding)
-                                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                                    @Override
-                                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                                        Toast.makeText(UserActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                                        mTvPhone.setText(mEdtPhone.getText().toString());
-                                    }
-
-                                    @Override
-                                    public void onVerificationFailed(@NonNull FirebaseException e) {
-                                        Toast.makeText(UserActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                                    }
-                                });
-
-                    }
-                }
-
-
 
                     return false;
 
@@ -177,11 +134,6 @@ public class UserActivity extends AppCompatActivity {
             mBtnSave = findViewById(R.id.btn_save);
             mTvId = findViewById(R.id.tv_id);
             mTvVerify = findViewById(R.id.tv_verify);
-            mTvPhone = findViewById(R.id.tv_phone);
-            mEdtPhone = findViewById(R.id.edt_phoneverify);
-            //        mImg = findViewById(R.id.img_avatar);
-
-
         }
 
 }
