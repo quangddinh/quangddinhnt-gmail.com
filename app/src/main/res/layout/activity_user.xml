@@ -10,72 +10,78 @@
 
 
     <ImageView
-        android:background="#02A65A"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_person_black_24dp"
+        android:background="#EAE8D4"
         android:layout_marginTop="10dp"
         android:id="@+id/img_user"
         android:layout_below="@+id/toolbar"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_profile"
-        android:layout_width="150dp"
-        android:layout_height="175dp" />
+        android:layout_width="220dp"
+        android:layout_height="170dp" />
 
-    <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/img_user"
-        android:layout_below="@+id/tv_useemail"
-        android:id="@+id/tv_id"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:text="Id"
-        android:textColor="#78201E"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:background="@drawable/bg_linear_layoutuser"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:id="@+id/linear_user"
+        android:layout_below="@+id/img_user"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" >
 
-    <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/img_user"
-        android:layout_below="@+id/tv_id"
-        android:id="@+id/tv_verify"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:text="Verify status"
-        android:textColor="#78201E"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/img_user"
-        android:layout_below="@+id/toolbar"
-        android:id="@+id/tv_username"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:text="Name"
-        android:textColor="#78201E"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/tv_username"
+            android:textSize="15sp"
+            android:text="Name"
+            android:textColor="#912220"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/img_user"
-        android:layout_below="@+id/tv_username"
-        android:id="@+id/tv_useemail"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:text="Email"
-        android:textColor="#78201E"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_below="@+id/tv_username"
+            android:id="@+id/tv_useemail"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+            android:text="Email"
+            android:textColor="#78201E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_below="@+id/tv_useemail"
+            android:id="@+id/tv_id"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+            android:text="Id"
+            android:textColor="#78201E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_below="@+id/tv_id"
+            android:id="@+id/tv_verify"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+            android:text="Verify status"
+            android:textColor="#78201E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
 
     <EditText
+        android:background="@drawable/btn_edttext"
         android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/btn_save"
-        android:visibility="visible"
         android:id="@+id/edt_insert_name"
         android:hint="Name"
-        android:textColorHint="#1C2871"
-        android:layout_width="wrap_content"
+        android:textColorHint="#090909"
+        android:layout_width="190dp"
         android:layout_height="wrap_content" />
 
     <Button

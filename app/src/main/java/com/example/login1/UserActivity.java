@@ -62,7 +62,7 @@ public class UserActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            Toast.makeText(UserActivity.this, "Welcom", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(UserActivity.this, "Your name is saved", Toast.LENGTH_SHORT).show();
                                         } else {
                                             Toast.makeText(UserActivity.this, "Fail", Toast.LENGTH_SHORT).show();
                                         }

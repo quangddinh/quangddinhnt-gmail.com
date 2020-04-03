@@ -3,61 +3,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@drawable/bg_register">
 
 
     <ImageView
+        android:layout_above="@+id/linear_register"
+        android:layout_marginBottom="50dp"
+        android:layout_centerHorizontal="true"
         android:id="@+id/img_regis"
-        android:src="@drawable/registratio"
+        android:src="@drawable/Registratio"
         android:scaleType="fitXY"
-        android:layout_width="120dp"
-        android:layout_height="80dp" />
+        android:layout_width="150dp"
+        android:layout_height="100dp" />
 
-    <EditText
-        android:layout_marginTop="30dp"
-        android:textColorHint="#FFFF"
-        android:textSize="20sp"
-        android:id="@+id/edt_email"
-        android:layout_below="@+id/img_regis"
-        android:hint="Email                  "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-    <EditText
-        android:layout_marginTop="10dp"
-        android:textColorHint="#FFFF"
-        android:textSize="20sp"
-        android:id="@+id/edt_pass"
-        android:layout_below="@+id/edt_email"
-        android:hint="Password           "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="50dp"
+        android:layout_above="@+id/btn_signup"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_linear_layout"
+        android:id="@+id/linear_register"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" >
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:textColorHint="#0F1B65"
+            android:textSize="20sp"
+            android:id="@+id/edt_email"
+            android:hint="Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:textColorHint="#0F1B65"
+            android:textSize="20sp"
+            android:id="@+id/edt_pass"
+            android:layout_below="@+id/edt_email"
+            android:hint="Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
 
     <Button
+        android:layout_centerHorizontal="true"
         android:background="@drawable/background_btn2"
-        android:layout_marginTop="40dp"
         android:text="Sign Up"
         android:id="@+id/btn_signup"
-        android:layout_below="@+id/edt_pass"
+        android:layout_marginBottom="40dp"
+        android:layout_above="@+id/btn_trangchu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/background_btn2"
-        android:layout_marginTop="20dp"
         android:text="Confirm"
         android:id="@+id/btn_trangchu"
-        android:layout_below="@+id/btn_signup"
+        android:layout_above="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/background_btn2"
-        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
         android:text="Back"
         android:id="@+id/btn_back"
-        android:layout_below="@+id/btn_trangchu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
