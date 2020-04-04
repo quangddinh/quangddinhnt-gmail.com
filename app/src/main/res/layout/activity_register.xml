@@ -8,19 +8,19 @@
 
     <ImageView
         android:layout_above="@+id/linear_register"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/img_regis"
-        android:src="@drawable/Registratio"
+        android:src="@drawable/res"
         android:scaleType="fitXY"
         android:layout_width="150dp"
-        android:layout_height="100dp" />
+        android:layout_height="110dp" />
 
 
     <LinearLayout
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:layout_above="@+id/btn_signup"
         android:layout_centerInParent="true"
         android:background="@drawable/bg_linear_layout"
@@ -30,18 +30,18 @@
         android:layout_height="150dp" >
 
         <EditText
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:textColorHint="#0F1B65"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:id="@+id/edt_email"
             android:hint="Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:textColorHint="#0F1B65"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:id="@+id/edt_pass"
             android:layout_below="@+id/edt_email"
             android:hint="Password"
@@ -57,7 +57,7 @@
         android:background="@drawable/background_btn2"
         android:text="Sign Up"
         android:id="@+id/btn_signup"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:layout_above="@+id/btn_trangchu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -74,7 +74,7 @@
 
     <Button
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/background_btn2"
         android:layout_alignParentBottom="true"
         android:text="Back"

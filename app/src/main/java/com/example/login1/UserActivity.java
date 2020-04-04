@@ -38,7 +38,9 @@ public class UserActivity extends AppCompatActivity {
         toolbarclick();
         show();
         getDislayname();
+
     }
+
 
     private void getDislayname() {
 
