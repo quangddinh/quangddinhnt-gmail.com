@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnDangnhap;
     Button mBtnRegister;
     private FirebaseAuth mAuth;
+    CheckBox mCheck;
 
 
     @Override
@@ -31,6 +36,20 @@ public class MainActivity extends AppCompatActivity {
 
         map();
         setListener();
+        check();
+    }
+
+    private void check() {
+        mCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    edtMk.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    edtMk.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
     }
 
     private void setListener() {
@@ -84,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         btnDangnhap = findViewById(R.id.buttonDangnhap);
         mAuth = FirebaseAuth.getInstance();
         mBtnRegister = findViewById(R.id.btn_register);
+        mCheck = findViewById(R.id.checkpass);
 
     }
 
