@@ -97,6 +97,7 @@ public class UserActivity extends AppCompatActivity {
                         return;
                 }
                 else {
+                    mTvName.setText(mEdtName.getText().toString());
                     if (user != null) {
                         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                 .setDisplayName(mEdtName.getText().toString())
