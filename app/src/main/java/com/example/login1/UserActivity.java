@@ -3,6 +3,9 @@ package com.example.login1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -26,7 +29,46 @@ public class UserActivity extends AppCompatActivity {
     TextView mTvName, mTvEmail, mTvId, mTvVerify;
     EditText mEdtName;
     Toolbar toolbar;
+    private long backPresstime;
+    private Toast backToast;
 
+
+    @Override
+    public void onBackPressed() {
+        if (backPresstime + 2000 > System.currentTimeMillis()){
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        }
+        else {
+//            backToast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT);
+//            backToast.show();
+//
+            Context context;
+            AlertDialog.Builder alert = new AlertDialog.Builder(UserActivity.this);
+            alert.setMessage("Do you want exit?");
+            alert.setIcon(R.drawable.ic_warning);
+            alert.setCancelable(false);
+
+            alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(UserActivity.this,MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+            alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            alert.show();
+
+        }
+        backPresstime = System.currentTimeMillis();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

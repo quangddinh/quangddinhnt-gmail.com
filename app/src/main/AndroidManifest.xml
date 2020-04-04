@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.login1">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:banner="@mipmap/ic_buff"
         android:allowBackup="true"
+        android:banner="@mipmap/ic_buff"
         android:icon="@mipmap/ic_buff"
         android:label="Login"
         android:roundIcon="@mipmap/ic_buff_round"
@@ -20,7 +21,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".RegisterActivity"
+            android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
